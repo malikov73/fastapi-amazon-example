@@ -1,5 +1,5 @@
 from fastapi import APIRouter, FastAPI
-
+from mangum import Mangum
 app = FastAPI()
 
 router = APIRouter()
@@ -13,3 +13,5 @@ def hello_world():
 
 
 app.include_router(router, prefix="/api")
+
+handler = Mangum(app=app)
