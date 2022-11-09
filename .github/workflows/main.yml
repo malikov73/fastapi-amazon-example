@@ -58,8 +58,9 @@ jobs:
           pytest tests/
       # Step 7
       - name: Create Zipfile archive of Dependencies
-        run: |
-          cd ./venv/lib/python3.9/site-packages
+        run:
+          ls -a
+          cd ./opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages
           zip -r9 ../../../../api.zip .
 
       # Step 8
