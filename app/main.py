@@ -1,7 +1,7 @@
 from fastapi import APIRouter, FastAPI
 from mangum import Mangum
 
-app = FastAPI(openapi_url='/dev/openapi.json', root_path='/dev')
+app = FastAPI(openapi_url='/dev/openapi.json')
 
 router = APIRouter()
 
