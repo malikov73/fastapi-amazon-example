@@ -1,17 +1,9 @@
 from fastapi import APIRouter, FastAPI
 from mangum import Mangum
-from pydantic import BaseSettings
 
+app = FastAPI(openapi_prefix='/dev')
 
-class Settings(BaseSettings):
-    openapi_url: str = "/dev/openapi.json"
-
-
-settings = Settings()
-
-app = FastAPI(openapi_url=settings.openapi_url)
-
-router = APIRouter()
+router = APIRouter(prefix='/dev')
 
 
 @router.get("/test/")
