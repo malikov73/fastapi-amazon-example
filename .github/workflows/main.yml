@@ -60,6 +60,10 @@ jobs:
       - name: Create Zipfile archive of Dependencies
         run: |
           ls -a
+          cd .venv/lib/
+          ls -a
+          cd python3.9.15/site-packages/
+          ls -a
           cd ./opt/hostedtoolcache/Python/3.9.15/x64/lib/python3.9/site-packages
           zip -r9 ../../../../api.zip .
 
