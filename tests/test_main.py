@@ -2,7 +2,7 @@ from fastapi.testclient import TestClient
 
 from app.main import app
 
-client = TestClient(app, root_path='/dev')
+client = TestClient(app)
 
 
 def test_child_resource():
