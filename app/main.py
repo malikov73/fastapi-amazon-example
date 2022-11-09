@@ -20,6 +20,6 @@ def hello_world():
     }
 
 
-app.include_router(router, prefix="/api")
+app.include_router(router, prefix="/dev/api")
 
-handler = Mangum(app=app, api_gateway_base_path='/dev')
+handler = Mangum(app=app)
