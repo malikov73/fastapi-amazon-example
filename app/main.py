@@ -1,7 +1,10 @@
 from fastapi import APIRouter, FastAPI
 from mangum import Mangum
+import os
+STAGE = os.environ.get('STAGE')
 
-app = FastAPI(openapi_url='/dev/openapi.json')
+root_path = '/' if not STAGE else f'/{STAGE}'
+app = FastAPI(root_path=root_path)
 
 router = APIRouter()
 
@@ -20,6 +23,6 @@ def hello_world():
     }
 
 
-app.include_router(router, prefix="/dev/api")
+app.include_router(router, prefix="/api")
 
 handler = Mangum(app=app)
