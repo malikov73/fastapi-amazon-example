@@ -1,8 +1,15 @@
 from fastapi import APIRouter, FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-
 from mangum import Mangum
-app = FastAPI()
+from pydantic import BaseSettings
+
+
+class Settings(BaseSettings):
+    openapi_url: str = "/dev/openapi.json"
+
+
+settings = Settings()
+
+app = FastAPI(openapi_url=settings.openapi_url)
 
 router = APIRouter()
 
@@ -19,6 +26,7 @@ def hello_world():
     return {
         'result': 'Hello World'
     }
+
 
 # app.add_middleware(
 #     CORSMiddleware,
