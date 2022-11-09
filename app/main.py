@@ -12,6 +12,13 @@ def hello_world():
     }
 
 
+@router.post("/test/")
+def hello_world():
+    return {
+        'result': 'Hello World'
+    }
+
+
 app.include_router(router, prefix="/api")
 
 handler = Mangum(app=app)
