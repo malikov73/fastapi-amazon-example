@@ -9,11 +9,11 @@ class DynamoDBResource:
     """DynamoDB resource class."""
 
     def __init__(self, aws_access_key_id, aws_secret_access_key, region_name):
+        self.aws_access_key_id = aws_access_key_id
+        self.aws_secret_access_key = aws_secret_access_key
+        self.region_name = region_name
         self.resource = boto3.resource(
-            'dynamodb',
-            aws_access_key_id=aws_access_key_id,
-            aws_secret_access_key=aws_secret_access_key,
-            region_name=region_name,
+            'dynamodb'
         )
 
     def get_table(self, table_name):
