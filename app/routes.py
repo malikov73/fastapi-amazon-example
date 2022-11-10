@@ -17,6 +17,7 @@ router = APIRouter()
 def get_threads(
         thread_service: Application = Depends(init_application),
 ):
+    """Get all threads."""
     return thread_service.thread_service.get_all()
 
 
@@ -29,6 +30,7 @@ def get_thread_by_id(
         thread_id: str,
         thread_service: Application = Depends(init_application),
 ):
+    """Get thread by id."""
     try:
         thread = thread_service.thread_service.get_by_id(thread_id)
     except ValueError as e:
@@ -49,6 +51,7 @@ def create_thread(
         thread: ThreadInSchema,
         thread_service: Application = Depends(init_application),
 ):
+    """Create thread."""
     try:
         thread_id = thread_service.thread_service.create(
             user_id=thread.user_id,
@@ -73,6 +76,7 @@ def update_thread(
         thread_in: ThreadInSchema,
         thread_service: Application = Depends(init_application),
 ):
+    """Update thread."""
     try:
         thread = thread_service.thread_service.get_by_id(thread_id)
         if thread is None:
@@ -106,6 +110,7 @@ def like_thread(
         user_id: str,
         thread_service: Application = Depends(init_application),
 ):
+    """Like thread."""
     try:
         thread = thread_service.thread_service.get_by_id(thread_id)
         if thread is None:
@@ -143,6 +148,7 @@ def get_comment_by_id(
         comment_id: str,
         comment_service: Application = Depends(init_application),
 ):
+
     try:
         comment = comment_service.comment_service.get_by_id(comment_id)
     except ValueError as e:
@@ -163,6 +169,7 @@ def create_comment(
         comment: CommentInSchema,
         comment_service: Application = Depends(init_application),
 ):
+
     try:
         comment_id = comment_service.comment_service.create(
             thread_id=comment.thread_id,
@@ -186,6 +193,7 @@ def delete_comment(
         comment_id: str,
         comment_service: Application = Depends(init_application),
 ):
+    """Delete comment."""
     try:
         comment_service.comment_service.delete(comment_id)
     except ValueError as e:
