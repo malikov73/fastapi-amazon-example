@@ -1,10 +1,9 @@
 # fastapi-amazon-example
 
-This is an example of how to use [FastAPI](https://fastapi.tiangolo.com/),
-to create a simple CRUD API that can be deployed to [AWS Lambda](https://aws.amazon.com/lambda/)
-[Mangum](https://mangum.io/) and [DynamoDB](https://aws.amazon.com/dynamodb/).
-
-
+## About
+This is a simple example of how to use [FastAPI](https://fastapi.tiangolo.com/)
+to create a CRUD API that can be deployed to [AWS Lambda](https://aws.amazon.com/lambda/)
+using [Mangum](https://mangum.io/) and [DynamoDB](https://aws.amazon.com/dynamodb/).
 
 ## Running locally
 
