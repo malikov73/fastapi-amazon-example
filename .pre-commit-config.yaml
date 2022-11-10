@@ -15,10 +15,6 @@ repos:
       - id: check-yaml
       - id: double-quote-string-fixer
 
-  - repo: https://github.com/pre-commit/mirrors-autopep8
-    rev: v1.6.0
-    hooks:
-      - id: autopep8
   - repo: local
     hooks:
       - id: pylint
@@ -36,8 +32,3 @@ repos:
     rev: 5.10.1
     hooks:
       - id: isort
-
-  - repo: https://github.com/asottile/add-trailing-comma
-    rev: v2.3.0
-    hooks:
-      - id: add-trailing-comma
