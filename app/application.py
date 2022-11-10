@@ -2,7 +2,6 @@
 
 from functools import lru_cache
 
-from app.config import Config
 from app.repositories import CommentRepository, ThreadRepository
 from app.resources import init_dynamodb_resource
 from app.services import CommentService, ThreadService
@@ -12,12 +11,7 @@ class Application(object):
     """."""
 
     def __init__(self):
-        self.config = Config()
-        self.dynamodb_resource = init_dynamodb_resource(
-            aws_access_key_id=self.config.AWS_ACCESS_KEY_ID,
-            aws_secret_access_key=self.config.AWS_SECRET_ACCESS_KEY,
-            region_name=self.config.AWS_DEFAULT_REGION,
-        )
+        self.dynamodb_resource = init_dynamodb_resource()
         self.thread_repository = ThreadRepository(self.dynamodb_resource)
         self.comment_repository = CommentRepository(self.dynamodb_resource)
         self.thread_service: ThreadService = ThreadService(

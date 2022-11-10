@@ -13,12 +13,15 @@ using [Mangum](https://mangum.io/) and [DynamoDB](https://aws.amazon.com/dynamod
 poetry install
 ```
 
-set environment variables
+create aws config file path `~/.aws/config`
 
 ```bash
-export AWS_ACCESS_KEY_ID=your_aws_access_key_id
-export AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
-export AWS_DEFAULT_REGION=your_aws_default_region
+[default]
+region = your-region
+aws_access_key_id=your-access-key
+aws_secret_access_key=your-secret-key
+```
+
 ```
 
 ### Run the API

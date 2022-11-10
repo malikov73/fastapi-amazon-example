@@ -8,10 +8,7 @@ import boto3
 class DynamoDBResource:
     """DynamoDB resource class."""
 
-    def __init__(self, aws_access_key_id, aws_secret_access_key, region_name):
-        self.aws_access_key_id = aws_access_key_id
-        self.aws_secret_access_key = aws_secret_access_key
-        self.region_name = region_name
+    def __init__(self):
         self.resource = boto3.resource(
             'dynamodb'
         )
@@ -25,10 +22,5 @@ class DynamoDBResource:
 
 @lru_cache(maxsize=1)
 def init_dynamodb_resource(
-        aws_access_key_id: str, aws_secret_access_key: str, region_name: str,
 ) -> DynamoDBResource:
-    return DynamoDBResource(
-        aws_access_key_id,
-        aws_secret_access_key,
-        region_name,
-    )
+    return DynamoDBResource()
