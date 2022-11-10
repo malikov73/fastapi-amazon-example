@@ -6,6 +6,6 @@ from pydantic import BaseSettings
 class Config(BaseSettings):
     """Config class."""
 
-    aws_access_key_id: str
-    aws_secret_access_key: str
-    region_name: str
+    AWS_ACCESS_KEY_ID: str
+    AWS_SECRET_ACCESS_KEY: str
+    AWS_DEFAULT_REGION: str

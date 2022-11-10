@@ -14,9 +14,9 @@ class Application(object):
     def __init__(self):
         self.config = Config()
         self.dynamodb_resource = init_dynamodb_resource(
-            aws_access_key_id=self.config.aws_access_key_id,
-            aws_secret_access_key=self.config.aws_secret_access_key,
-            region_name=self.config.region_name,
+            aws_access_key_id=self.config.AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=self.config.AWS_SECRET_ACCESS_KEY,
+            region_name=self.config.AWS_DEFAULT_REGION,
         )
         self.thread_repository = ThreadRepository(self.dynamodb_resource)
         self.comment_repository = CommentRepository(self.dynamodb_resource)
