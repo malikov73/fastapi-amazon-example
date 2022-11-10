@@ -59,9 +59,6 @@ jobs:
           zip -r9 ../../../../api.zip .
 
       # Step 9
-      - name: check
-          run: ls -a
-
       - name: Add App to Zip file
         run: zip -g api.zip -r app
 
