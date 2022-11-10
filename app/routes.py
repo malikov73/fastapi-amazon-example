@@ -44,7 +44,7 @@ def get_thread_by_id(
 @router.post(
     '/threads',
     tags=['threads'],
-    status_code=201,
+    status_code=status.HTTP_201_CREATED,
     response_model=str,
 )
 def create_thread(
@@ -162,7 +162,7 @@ def get_comment_by_id(
 @router.post(
     '/comments',
     tags=['comments'],
-    status_code=201,
+    status_code=status.HTTP_201_CREATED,
     response_model=str,
 )
 def create_comment(
@@ -187,7 +187,7 @@ def create_comment(
 @router.delete(
     '/comments/{comment_id}',
     tags=['comments'],
-    status_code=204,
+    status_code=status.HTTP_204_NO_CONTENT,
 )
 def delete_comment(
         comment_id: str,
