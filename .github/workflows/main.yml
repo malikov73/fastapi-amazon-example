@@ -43,7 +43,7 @@ jobs:
         run: poetry install --no-interaction
       # Step 7
       - name: Run Linters
-        run: pylint app tests
+        run: poetry run pylint app tests
       - name: Run tests
         run: |
           source .venv/bin/activate
